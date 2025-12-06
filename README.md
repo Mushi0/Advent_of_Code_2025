@@ -3,12 +3,12 @@
 ## Table of Progress[^1]
 |Day|Problem|Progress|Q1_time|Q2_time|
 |:---:|:---:|:---:|:---:|:---:|
-|01|[:star:](https://adventofcode.com/2025/day/1)| - | - | - |
+|01|[:star:](https://adventofcode.com/2025/day/1)|[:christmas_tree:](./Python/D1_1.py) [:santa:](./Python/D1_2.py)|1.342e-03s|1.891e-03s|
 |02|[:star:](https://adventofcode.com/2025/day/2)| - | - | - |
 |03|[:star:](https://adventofcode.com/2025/day/3)| - | - | - |
 |04|[:star:](https://adventofcode.com/2025/day/4)| - | - | - |
 |05|[:star:](https://adventofcode.com/2025/day/5)| - | - | - |
-|06|[:star:](https://adventofcode.com/2025/day/6)|[:christmas_tree:](./Python/D6_1.py) [:santa:](./Python/D6_2_better.py)|4.266e-03s|5.373e-03s|
+|06|[:star:](https://adventofcode.com/2025/day/6)|[:christmas_tree:](./Python/D6_1.py) [:santa:](./Python/D6_2.py)|4.266e-03s|5.373e-03s|
 |07|[:star:](https://adventofcode.com/2025/day/7)| - | - | - |
 |08|[:star:](https://adventofcode.com/2025/day/8)| - | - | - |
 |09|[:star:](https://adventofcode.com/2025/day/9)| - | - | - |
