@@ -13,7 +13,6 @@ def main(DATA_INPUT):
     while True:
         new_fresh_ranges = [fresh_ranges[0]]
         for fresh_range in fresh_ranges[1:]:
-            print(fresh_range)
             merged = False
             for i, new_range in enumerate(new_fresh_ranges):
                 if fresh_range[0] <= new_range[0] and fresh_range[1] >= new_range[0]:
@@ -34,7 +33,6 @@ def main(DATA_INPUT):
             break
         nb_fresh_ranges = len(new_fresh_ranges)
         fresh_ranges = new_fresh_ranges
-        print(fresh_ranges)
     
     total_avail_ids = 0
     for fresh_range in fresh_ranges:
