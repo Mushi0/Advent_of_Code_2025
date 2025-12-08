@@ -1,0 +1,52 @@
+import sys
+import time
+import numpy as np
+
+def main(DATA_INPUT):
+    start_time = time.time()
+
+    with open(DATA_INPUT) as f:
+        raw_data = [list(map(int, f.strip().split(','))) for f in f.readlines()]
+    
+    # find the distance between any two points
+    distance_matrix = np.zeros((len(raw_data), len(raw_data)))
+    for i, point_1 in enumerate(raw_data[:-1]):
+        for j, point_2 in enumerate(raw_data[i + 1:]):
+            distance = ((point_1[0] - point_2[0]) ** 2 + 
+                        (point_1[1] - point_2[1]) ** 2 + 
+                        (point_1[2] - point_2[2]) ** 2) ** 0.5
+            distance_matrix[i, j + i + 1] = distance
+    
+    # sort the distances and remove the zeros
+    sorted_distances = np.sort(distance_matrix.flatten())
+    sorted_distances = sorted_distances[sorted_distances > 0]
+    
+    connected_circuits = [set([point]) for point in range(len(raw_data))]
+    k = 0
+    while len(connected_circuits) != 1:
+        smallest_dis = sorted_distances[k]
+        index = np.where(distance_matrix == smallest_dis)
+        index = [int(item[0]) for item in index]
+        
+        # connect two points index[0] and index[1]
+        for i, circuit in enumerate(connected_circuits):
+            if not (index[0] in circuit or index[1] in circuit):
+                continue
+            connected_circuits[i].update({index[0], index[1]})
+            # merge circuits if they share points
+            for j, other_circuit in enumerate(connected_circuits):
+                if not(j > i and connected_circuits[i].intersection(other_circuit)):
+                    continue
+                connected_circuits[i].update(other_circuit)
+                del connected_circuits[j]
+                break
+            break
+        k += 1
+    
+    coord_mult = raw_data[index[0]][0] * raw_data[index[1]][0]
+    
+    print(f'Time taken: {(time.time() - start_time):.3e}s')
+    print(f'The multiplication of the X coordinates of the last two junction boxes to connect is: {coord_mult}. ')
+
+if __name__ == '__main__':
+    main(sys.argv[1])
