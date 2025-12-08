@@ -12,23 +12,19 @@ def main(DATA_INPUT):
         raw_data = [list(map(int, f.strip().split(','))) for f in f.readlines()]
     
     # find the distance between any two points
-    distance_matrix = np.zeros((len(raw_data), len(raw_data)))
+    sorted_distances = []
     for i, point_1 in enumerate(raw_data[:-1]):
         for j, point_2 in enumerate(raw_data[i + 1:]):
             distance = ((point_1[0] - point_2[0]) ** 2 + 
                         (point_1[1] - point_2[1]) ** 2 + 
                         (point_1[2] - point_2[2]) ** 2) ** 0.5
-            distance_matrix[i, j + i + 1] = distance
-    
-    # sort the distances and remove the zeros
-    sorted_distances = np.sort(distance_matrix.flatten())
-    sorted_distances = sorted_distances[sorted_distances > 0]
+            sorted_distances.append((distance, i, j + i + 1))
+    sorted_distances.sort(key=lambda x: x[0])
     
     connected_circuits = []
     for i in tqdm(range(NB_CONECTIONS)):
         smallest_dis = sorted_distances[i]
-        index = np.where(distance_matrix == smallest_dis)
-        index = [int(item[0]) for item in index]
+        index = [smallest_dis[1], smallest_dis[2]]
         
         # connect two points index[0] and index[1]
         found_curcuit = False
