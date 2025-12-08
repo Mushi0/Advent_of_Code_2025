@@ -1,6 +1,5 @@
 import sys
 import time
-import numpy as np
 
 def main(DATA_INPUT):
     start_time = time.time()
@@ -31,7 +30,7 @@ def main(DATA_INPUT):
             connected_circuits[i].update({index[0], index[1]})
             # merge circuits if they share points
             for j, other_circuit in enumerate(connected_circuits):
-                if not(j > i and connected_circuits[i].intersection(other_circuit)):
+                if not (j > i and (index[0] in other_circuit or index[1] in other_circuit)):
                     continue
                 connected_circuits[i].update(other_circuit)
                 del connected_circuits[j]

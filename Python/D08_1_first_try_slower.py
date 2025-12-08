@@ -19,24 +19,34 @@ def main(DATA_INPUT):
             sorted_distances.append((distance, i, j + i + 1))
     sorted_distances.sort(key=lambda x: x[0])
     
-    connected_circuits = [set([point]) for point in range(len(raw_data))]
-    for k in range(NB_CONECTIONS):
-        smallest_dis = sorted_distances[k]
+    connected_circuits = []
+    for i in range(NB_CONECTIONS):
+        smallest_dis = sorted_distances[i]
         index = [smallest_dis[1], smallest_dis[2]]
         
         # connect two points index[0] and index[1]
-        for i, circuit in enumerate(connected_circuits):
-            if not (index[0] in circuit or index[1] in circuit):
-                continue
-            connected_circuits[i].update({index[0], index[1]})
-            # merge circuits if they share points
-            for j, other_circuit in enumerate(connected_circuits):
-                if not (j > i and (index[0] in other_circuit or index[1] in other_circuit)):
-                    continue
-                connected_circuits[i].update(other_circuit)
-                del connected_circuits[j]
+        found_curcuit = False
+        for j, circuit in enumerate(connected_circuits):
+            if index[0] in circuit or index[1] in circuit:
+                connected_circuits[j].update({index[0], index[1]})
+                found_curcuit = True
                 break
-            break
+        if not found_curcuit:
+            connected_circuits.append({index[0], index[1]})
+    
+    # merge circuits if they share points
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(connected_circuits)):
+            for j in range(i + 1, len(connected_circuits)):
+                if connected_circuits[i].intersection(connected_circuits[j]):
+                    connected_circuits[i].update(connected_circuits[j])
+                    del connected_circuits[j]
+                    merged = True
+                    break
+            if merged:
+                break
     
     connected_circuits.sort(key=lambda x: len(x), reverse=True)
     size_mult = 1
