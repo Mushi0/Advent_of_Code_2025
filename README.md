@@ -11,7 +11,7 @@
 |06|[:star:](https://adventofcode.com/2025/day/6)|[:christmas_tree:](./Python/D06_1.py) [:santa:](./Python/D06_2.py)|4.266e-03s|5.373e-03s|
 |07|[:star:](https://adventofcode.com/2025/day/7)|[:christmas_tree:](./Python/D07_1.py) [:santa:](./Python/D07_2.py)|1.332e-03s|2.532e-03s|
 |08|[:star:](https://adventofcode.com/2025/day/8)|[:christmas_tree:](./Python/D08_1.py) [:santa:](./Python/D08_2.py)|5.799e-01s|5.846e-01s|
-|09|[:star:](https://adventofcode.com/2025/day/9)|[:christmas_tree:](./Python/D09_1.py) [:santa:](./Python/D09_2.py)|1.936e-02s|4.655e+02s|
+|09|[:star:](https://adventofcode.com/2025/day/9)|[:christmas_tree:](./Python/D09_1.py) [:santa:](./Python/D09_2_improved.py)|1.936e-02s|2.788e+02s|
 |10|[:star:](https://adventofcode.com/2025/day/10)| - | - | - |
 |11|[:star:](https://adventofcode.com/2025/day/11)| - | - | - |
 |12|[:star:](https://adventofcode.com/2025/day/12)| - | - | - |
