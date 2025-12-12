@@ -14,8 +14,10 @@
 |09|[:star:](https://adventofcode.com/2025/day/9)|[:christmas_tree:](./Python/D09_1.py) [:santa:](./Python/D09_2_improved_2.py)|1.936e-02s|4.170e-01s|
 |10|[:star:](https://adventofcode.com/2025/day/10)|[:christmas_tree:](./Python/D10_1.py) [:santa:](./Python/D10_2.py)|1.043e+01s|3.183e-01s|
 |11|[:star:](https://adventofcode.com/2025/day/11)|[:christmas_tree:](./Python/D11_1.py) [:santa:](./Python/D11_2.py)|8.132e-04s|1.478e-03s|
-|12|[:star:](https://adventofcode.com/2025/day/12)| - | - | - |
+|12|[:star:](https://adventofcode.com/2025/day/12)|[:christmas_tree:](./Python/D12_1.py) [:snowflake:](https://adventofcode.com/2025/day/12/answer)[^2]|1.669e-03s| - |
 
 -----------------------------
 
 [^1]: :star:: link to the problem page; :christmas_tree:: link to the first problem solution; :santa:: link to the second problem solution. 
+
+[^2]: Day 25 does not have part 2
